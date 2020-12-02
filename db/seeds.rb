@@ -9,7 +9,7 @@
 User.delete_all
 Pet.delete_all
 
-PERSONALITY = ["playful", "sleepy", "chill", "feisty", "cuddly"]
+PERSONALITY = ["Playful", "Sleepy", "Chill", "Feisty", "Cuddly"]
 CAT_PIC = [
     "https://static01.nyt.com/images/2020/04/22/science/22VIRUS-PETCATS1/22VIRUS-PETCATS1-mediumSquareAt3X.jpg",
     "https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg",

@@ -59,6 +59,13 @@ cat_data.each do |cat|
         cat_photo = CAT_PIC.sample
     end
 
+    #check if description is available
+    # if cat["description"]
+    #     description = cat["description"]
+    # else
+    #     description = 'There is no description :('
+    # end
+
 
     Pet.create(
         name: cat["name"],
@@ -68,6 +75,7 @@ cat_data.each do |cat|
         kid_friendly: kid_friendly,
         personality: personality,
         img_url: cat_photo
+        # ,description: description
     )
 end
 
@@ -95,6 +103,13 @@ dog_data.each do |dog|
         dog_photo = DOG_PIC.sample
     end
 
+    # check if description exists
+    # if dog["description"]
+    #     description = dog["description"]
+    # else
+    #     description = 'There is no description :('
+    # end
+
 
     Pet.create(
         name: dog["name"],
@@ -104,5 +119,6 @@ dog_data.each do |dog|
         kid_friendly: kid_friendly,
         personality: personality,
         img_url: dog_photo
+        # ,description: description
     )
 end

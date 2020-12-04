@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
         appointments = Appointment.all
         user = User.find_by(id: params[:user_id])
         pet = User.find_by(id: params[:pet_id])
-        render json: appointments, only: [:user_id, :pet_id, :start_date, :end_date]
+        render json: appointments, only: [:id, :user_id, :pet_id, :start_date, :end_date]
     end
 
     def show
@@ -18,6 +18,14 @@ class AppointmentsController < ApplicationController
         user = User.find_by(id: params[:user_id])
         pet = User.find_by(id: params[:pet_id])
         appointment = Appointment.create(appointment_params)
+        render json: appointment
+    end
+
+    def update
+        user = User.find_by(id: params[:user_id])
+        pet = User.find_by(id: params[:pet_id])
+        appointment = Appointment.find_by(id: params[:id])
+        appointment.update(appointment_params)
         render json: appointment
     end
 

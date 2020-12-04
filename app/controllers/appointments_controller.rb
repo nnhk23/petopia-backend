@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
         appointments = Appointment.all
         user = User.find_by(id: params[:user_id])
         pet = User.find_by(id: params[:pet_id])
-        render json: appointments, only: [:id, :user_id, :pet_id, :start_date, :end_date]
+        render json: appointments, only: [:id, :user_id, :pet_id, :start_date, :end_date], include: {:pet => {only: [:name]}}
     end
 
     def show

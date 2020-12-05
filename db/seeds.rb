@@ -28,6 +28,7 @@ DOG_PIC = [
 contents = File.open('cat.txt')
 cat_data = JSON.parse(contents.read)
 
+
 contents = File.open('dog.txt')
 dog_data = JSON.parse(contents.read)
 
@@ -38,11 +39,11 @@ end
 cat_data.each do |cat|
     # check if kid_friendly tag exists
     if cat["environment"]["children"] 
-        kid_friendly = "yes"
+        kid_friendly = "Yes"
     elsif !cat["environment"]["children"] 
-        kid_friendly = "no"
+        kid_friendly = "No"
     else
-        kid_friendly = "unknown"
+        kid_friendly = "Unknown"
     end
 
     #check if personality exists
@@ -54,17 +55,17 @@ cat_data.each do |cat|
 
     #check if image url exists
     if cat["photos"].length > 0
-        cat_photo = cat["photos"][0]["medium"]
+        cat_photo = cat["photos"][0]["large"]
     else
         cat_photo = CAT_PIC.sample
     end
 
     #check if description is available
-    # if cat["description"]
-    #     description = cat["description"]
-    # else
-    #     description = 'There is no description :('
-    # end
+    if cat["description"]
+        description = cat["description"]
+    else
+        description = 'There is no description :('
+    end
 
 
     Pet.create(
@@ -74,8 +75,8 @@ cat_data.each do |cat|
         age: cat["age"],
         kid_friendly: kid_friendly,
         personality: personality,
-        img_url: cat_photo
-        # ,description: description
+        img_url: cat_photo,
+        description: description
     )
 end
 
@@ -104,11 +105,11 @@ dog_data.each do |dog|
     end
 
     # check if description exists
-    # if dog["description"]
-    #     description = dog["description"]
-    # else
-    #     description = 'There is no description :('
-    # end
+    if dog["description"]
+        description = dog["description"]
+    else
+        description = 'There is no description :('
+    end
 
 
     Pet.create(
@@ -118,7 +119,7 @@ dog_data.each do |dog|
         age: dog["age"],
         kid_friendly: kid_friendly,
         personality: personality,
-        img_url: dog_photo
-        # ,description: description
+        img_url: dog_photo,
+        description: description
     )
 end

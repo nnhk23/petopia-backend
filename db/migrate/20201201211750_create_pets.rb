@@ -8,7 +8,7 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.string :kid_friendly
       t.string :personality
       t.string :img_url
-      # t.string :description
+      t.string :description
 
       t.timestamps
     end

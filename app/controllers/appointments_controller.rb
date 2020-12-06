@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
         appointment = Appointment.find_by(id: params[:id])
         user = User.find_by(id: params[:user_id])
         pet = User.find_by(id: params[:pet_id])
-        render json: appointment, only: [:user_id, :pet_id, :start_date, :end_date]
+        render json: appointment, only: [:id, :user_id, :pet_id, :start_date, :end_date]
     end
 
     def create
@@ -37,7 +37,7 @@ class AppointmentsController < ApplicationController
     private
 
     def appointment_params
-        params.require(:appointment).permit(:user_id, :pet_id, :start_date, :end_date)
+        params.require(:appointment).permit(:id, :user_id, :pet_id, :start_date, :end_date)
     end
 
 end
